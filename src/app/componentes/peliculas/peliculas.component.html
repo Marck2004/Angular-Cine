@@ -1,0 +1,45 @@
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+       class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+      Nombre
+    </th>
+    <td mat-cell *matCellDef="let pelicula"> {{pelicula.nombre}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="autor">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+      Autor
+    </th>
+    <td mat-cell *matCellDef="let pelicula"> {{pelicula.autor}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="anio">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+      Año
+    </th>
+    <td mat-cell *matCellDef="let persona"> {{persona.anio}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="tipo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+      Tipo
+    </th>
+    <td mat-cell *matCellDef="let persona"> {{persona.tipo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="foto">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol" class="mat-header-cell">
+      Imagen
+    </th>
+    <td mat-cell *matCellDef="let persona"> <img [src]="'../../../assets/imgPeliculas/'+persona.foto" class="foto"></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"class="mat-row"></tr>
+</table>

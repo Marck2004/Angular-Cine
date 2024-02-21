@@ -1,0 +1,33 @@
+table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  .foto {
+    width: 100px; /* Ancho deseado para la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+  }
+  
+  /* Estilo para las celdas de la tabla */
+  .mat-cell, .mat-header-cell {
+    padding: 8px 16px; /* Espaciado interno */
+  }
+  
+  /* Estilo para las filas impares */
+  .mat-row:nth-child(odd) {
+    background-color: #f0f0f0; /* Color de fondo para las filas impares */
+  }
+  
+  /* Estilo para el encabezado de la tabla */
+  .mat-header-row {
+    background-color: #333; /* Color de fondo del encabezado */
+    color: white; /* Color del texto del encabezado */
+    font-weight: bold; /* Fuente en negrita para el encabezado */
+  }
+  
+  /* Estilo para el hover sobre las filas */
+  .mat-row:hover {
+    background-color: #ddd; /* Color de fondo cuando se pasa el ratón sobre una fila */
+  }
