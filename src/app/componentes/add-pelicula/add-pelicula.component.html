@@ -1,0 +1,48 @@
+<app-nav></app-nav>
+<div class="form-container">
+    <div class="form-column">
+      <div class="form-field" class="cajas">
+        <label>Nombre de la película</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre de la película</mat-label>
+          <input matInput [(ngModel)]="peliculaAnadida.nombre" placeholder="Placeholder">
+        </mat-form-field>
+      </div>
+  
+      <div class="form-field" class="cajas">
+        <label>Autor</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Autor</mat-label>
+          <input matInput [(ngModel)]="peliculaAnadida.autor" placeholder="Placeholder">
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <div class="form-column">
+      <div class="form-field" class="cajas">
+        <label>Año</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Año</mat-label>
+          <input matInput type="number" [(ngModel)]="peliculaAnadida.anio" placeholder="Placeholder">
+        </mat-form-field>
+      </div>
+  
+      <div class="form-field" class="cajas">
+        <label>Tipo</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Tipo</mat-label>
+          <input matInput [(ngModel)]="peliculaAnadida.tipo" placeholder="Placeholder">
+        </mat-form-field>
+      </div>
+  
+      <div class="form-field" class="cajas">
+        <label>Imagen</label>
+        <mat-form-field appearance="fill">
+          <mat-label>Imagen</mat-label>
+          <input matInput [(ngModel)]="peliculaAnadida.foto" placeholder="Placeholder">
+        </mat-form-field>
+      </div>
+    </div>
+    
+  </div>
+  <button id="botonAñadir" (click)="enviarDatos(peliculaAnadida)">Añadir pelicula</button>

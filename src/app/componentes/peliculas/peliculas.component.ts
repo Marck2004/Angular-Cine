@@ -5,13 +5,14 @@ import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
+import { NavComponent } from '../nav/nav.component';
 
 const tipoPeliculas:InterfazPeliculas[] = [];
 
 @Component({
   selector: 'app-peliculas',
   standalone: true,
-  imports: [MatTableModule,MatSortModule],
+  imports: [MatTableModule,MatSortModule,NavComponent,NavComponent],
   templateUrl: './peliculas.component.html',
   styleUrl: './peliculas.component.css'
 })
@@ -19,7 +20,7 @@ const tipoPeliculas:InterfazPeliculas[] = [];
 export class PeliculasComponent {
   peliculas?:InterfazPeliculas[];
 
-  displayedColumns: string[] = ['nombre', 'autor', 'anio', 'tipo','foto'];
+  displayedColumns: string[] = ['nombre', 'autor', 'anio', 'tipo','foto','edicion'];
   dataSource = new MatTableDataSource(tipoPeliculas);
 
   constructor(private peliculasRecuperadas:ServicioApiPrivadaService,

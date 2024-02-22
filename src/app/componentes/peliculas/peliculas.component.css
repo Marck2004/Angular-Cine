@@ -9,7 +9,21 @@ table {
     width: 100px; /* Ancho deseado para la imagen */
     height: auto; /* Altura automática para mantener la proporción */
   }
-  
+  .botonEditar{
+      display: block;
+      margin: 0 auto; /* Centra horizontalmente */
+      padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+      font-size: 16px; /* Tamaño del texto */
+      background-color: #959697; /* Color de fondo */
+      color: #fff; /* Color del texto */
+      border: none; /* Sin borde */
+      border-radius: 5px; /* Bordes redondeados */
+      cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+      transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  }
+  .botonEditar:hover {
+    background-color: #44484d; /* Color de fondo al pasar sobre el botón */
+  }
   /* Estilo para las celdas de la tabla */
   .mat-cell, .mat-header-cell {
     padding: 8px 16px; /* Espaciado interno */

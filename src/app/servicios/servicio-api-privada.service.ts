@@ -16,5 +16,18 @@ export class ServicioApiPrivadaService {
 
       return data;
     }
+    async añadirPelicula(envio:any){
+      
+      const response = await fetch("http://localhost:2525/peliculas",{
+        method:"post",
+        mode:"cors",
+        headers:{'Content-Type': 'application/json'},
+        body:JSON.stringify(envio)
+      });
+        
+        const data:any = await response.json();
+      
+        return data;
+      }
 
 }
