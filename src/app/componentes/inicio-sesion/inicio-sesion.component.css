@@ -1,0 +1,57 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+  }
+  
+  .example-form {
+    border: 2px solid black;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #b8b7b7;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .login-button, .register-button {
+    transition: background-color 0.3s;
+  }
+  .boton{
+    display: block;
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+    font-size: 16px; /* Tamaño del texto */
+    background-color: #959697; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  }
+  .boton:hover{
+    background-color: #44484d; /* Color de fondo al pasar sobre el botón */
+
+  }
+
+  .borde-rojo {
+    border: 4px solid red;
+  }

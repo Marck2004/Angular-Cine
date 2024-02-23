@@ -29,5 +29,23 @@ export class ServicioApiPrivadaService {
       
         return data;
       }
+      async eliminarPelicula(nombre:String){
+      
+        const response = await fetch(`http://localhost:2525/peliculas/${nombre}`,{
+          method:"DELETE"
+        });      
 
+          const data:any = await response.json();
+          return data;
+        }
+
+        async modificarPelicula(nombre:String){
+      
+          const response = await fetch(`http://localhost:2525/peliculas/${nombre}`,{
+            method:"put"
+          });      
+            
+            const data:any = await response.json();
+            return data;
+          }
 }

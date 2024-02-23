@@ -20,7 +20,7 @@ const tipoPeliculas:InterfazPeliculas[] = [];
 export class PeliculasComponent {
   peliculas?:InterfazPeliculas[];
 
-  displayedColumns: string[] = ['nombre', 'autor', 'anio', 'tipo','foto','edicion'];
+  displayedColumns: string[] = ['nombre', 'autor', 'anio', 'tipo','foto','edicion','borrar'];
   dataSource = new MatTableDataSource(tipoPeliculas);
 
   constructor(private peliculasRecuperadas:ServicioApiPrivadaService,
@@ -34,7 +34,16 @@ export class PeliculasComponent {
     this.peliculasRecuperadas.recuperarPelicula().then((peliculasDevueltas)=>{
       this.peliculas = peliculasDevueltas;
       this.dataSource.data = this.peliculas;
-      console.log(this.peliculas);
+    })
+  }
+  removeFilm(nombrePelicula:String){
+    this.peliculasRecuperadas.eliminarPelicula(nombrePelicula).then((datos)=>{
+      if(datos.status == "success"){
+        alert("Pelicula borrada correctamente");
+      this.recuperarPeliculas();
+      }else{
+        alert("Error al borrar la pelicula")
+      }
     })
   }
   announceSortChange(sortState: Sort) {
