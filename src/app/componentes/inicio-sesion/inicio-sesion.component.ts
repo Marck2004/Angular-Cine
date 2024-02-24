@@ -21,17 +21,19 @@ export class InicioSesionComponent {
   usuarioBuscado:InterfazUsuariosBuscados={
     nombre:"",
     contrasenia:"",
+    email:"",
+    telefono:0,
     estado:""
   };
   constructor(private servicioUsuarios:ServicioUsuariosService,
       private router:Router){}
 
   validarInicioSesion(usuario:InterfazUsuariosBuscados){
-
+    
     this.servicioUsuarios.inicioSesion(usuario).then((datos)=>{
       if(datos.status == "ok"){
         console.log(datos);
-        
+        localStorage.setItem("usuario",JSON.stringify(datos.usuario));
         this.router.navigate(["peliculas"]);
       }else{
         this.credencialesCorrectas = false;

@@ -1,4 +1,9 @@
-<app-nav></app-nav>
+
+@if(this.usuario?.estado == "admin"){
+  <app-nav></app-nav>
+}@else {
+  <app-nav-usuario></app-nav-usuario>
+}
 <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
        class="mat-elevation-z8">
 
@@ -23,7 +28,7 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
       Año
     </th>
-    <td mat-cell *matCellDef="let persona"> {{persona.anio}} </td>
+    <td mat-cell *matCellDef="let peliculas"> {{peliculas.anio}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
@@ -31,28 +36,28 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
       Tipo
     </th>
-    <td mat-cell *matCellDef="let persona"> {{persona.tipo}} </td>
+    <td mat-cell *matCellDef="let peliculas"> {{peliculas.tipo}} </td>
   </ng-container>
 
   <ng-container matColumnDef="foto">
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol" class="mat-header-cell">
       Imagen
     </th>
-    <td mat-cell *matCellDef="let persona"> <img [src]="'../../../assets/imgPeliculas/'+persona.foto" class="foto" [alt]="persona.nombre"></td>
-  </ng-container>
-
-  <ng-container matColumnDef="edicion">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol" class="mat-header-cell">
-      Editar
-    </th>
-    <td mat-cell *matCellDef="let persona"><button class="botonesCambiar">Editar</button></td>
+    <td mat-cell *matCellDef="let peliculas"> <img [src]="'../../../assets/imgPeliculas/'+peliculas.foto" class="foto" [alt]="peliculas.nombre"></td>
   </ng-container>
 
   <ng-container matColumnDef="borrar">
+    @if (this.usuario?.estado == "admin") {
     <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol" class="mat-header-cell">
       Borrar
     </th>
-    <td mat-cell *matCellDef="let persona"><button class="botonesCambiar" (click)="removeFilm(persona.nombre)">Borrar</button></td>
+    <td mat-cell *matCellDef="let peliculas"><button class="botonesCambiar" (click)="removeFilm(peliculas.nombre)">Borrar</button></td>
+  }@else {
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol" class="mat-header-cell">
+      Comprar
+    </th>
+    <td mat-cell *matCellDef="let peliculas"><button class="botonesCambiar" (click)="comprarPelicula(peliculas.nombre)">Borrar</button></td>
+  }
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

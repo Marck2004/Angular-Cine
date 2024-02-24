@@ -9,7 +9,6 @@ export class ServicioUsuariosService {
   constructor() { }
 
     async inicioSesion(usuario:InterfazUsuariosBuscados){
-      console.log(usuario);
       
       const response = await fetch("http://localhost:2525/login",{
         method:"post",
@@ -22,4 +21,24 @@ export class ServicioUsuariosService {
       
         return data;
     }
+    async recuperarUsuarios():Promise<InterfazUsuariosBuscados[]>{
+
+      const response = await fetch("http://localhost:2525/usuarios");
+  
+        const data:InterfazUsuariosBuscados[] = await response.json();
+  
+        return data;
+      }
+      async modificarUsuario(usuario:InterfazUsuariosBuscados){
+      
+        const response = await fetch("http://localhost:2525/modifUsuario",{
+          method:"put",
+          mode:"cors",
+          headers:{'Content-Type': 'application/json'},
+          body:JSON.stringify(usuario)
+        });
+        const data:any = await response.json();
+      
+        return data;
+}
 }
