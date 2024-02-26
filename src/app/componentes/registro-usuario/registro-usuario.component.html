@@ -1,0 +1,31 @@
+<div class="container">
+    
+    <form class="example-form">
+        <p>Nombre de Usuario: </p>
+      <mat-form-field class="example-full-width" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
+        <mat-label>Usuario</mat-label>
+        <input matInput [(ngModel)]="usuarioBuscado.nombre" name ="nombre" placeholder="Nombre de usuario" class="caja" >
+      </mat-form-field>
+      <p>Contraseña: </p>
+      <mat-form-field class="example-full-width" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [(ngModel)]="usuarioBuscado.contrasenia" name="contrasenia" placeholder="Contraseña" class="caja" >
+      </mat-form-field>
+      <p>Email: </p>
+      <mat-form-field class="example-full-width" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="usuarioBuscado.email" name="email" placeholder="email" class="caja" >
+      </mat-form-field>
+      <p>telefono: </p>
+      <mat-form-field class="example-full-width" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
+        <mat-label>telefono</mat-label>
+        <input matInput [(ngModel)]="usuarioBuscado.telefono" name="telefono" placeholder="telefono" class="caja" >
+      </mat-form-field>
+  
+      <div class="button-container">
+        <button mat-raised-button color="primary" class="login-button" class="boton" (click)="validarRegistro(usuarioBuscado)">Registrarse</button>
+        <button mat-raised-button color="accent" class="register-button" class="boton" (click)="volver()">Iniciar Sesion</button>
+      </div>
+    </form>
+  </div>
+  

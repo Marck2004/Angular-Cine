@@ -40,5 +40,17 @@ export class ServicioUsuariosService {
         const data:any = await response.json();
       
         return data;
-}
+    }
+    async añadirUsuario(envio:InterfazUsuariosBuscados){
+      
+      const response = await fetch("http://localhost:2525/addUsuario",{
+        method:"post",
+        mode:"cors",
+        headers:{'Content-Type': 'application/json'},
+        body:JSON.stringify(envio)
+      });
+      const data:any = await response.json();
+      
+      return data;
+    }
 }

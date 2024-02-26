@@ -6,6 +6,7 @@ import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion
 import { InfoPeliculaComponent } from './componentes/info-pelicula/info-pelicula.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { ModificarUsuarioComponent } from './componentes/modificar-usuario/modificar-usuario.component';
+import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 
 export const routes: Routes = [
     {path:"",component:PeliculasComponent},
@@ -14,5 +15,6 @@ export const routes: Routes = [
     {path:"inicioSesion",component:InicioSesionComponent},
     {path:"informacion/:pelicula",component:InfoPeliculaComponent},
     {path:"usuarios",component:UsuariosComponent},
-    {path:"modificarUsuario/:usuario",component:ModificarUsuarioComponent}
+    {path:"modificarUsuario/:usuario",component:ModificarUsuarioComponent},
+    {path:"registro",component:RegistroUsuarioComponent}
 ];

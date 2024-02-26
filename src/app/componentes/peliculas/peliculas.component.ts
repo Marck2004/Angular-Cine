@@ -48,7 +48,7 @@ export class PeliculasComponent {
   
     this.peliculasRecuperadas.recuperarPelicula().then((peliculasDevueltas)=>{
       this.peliculas = peliculasDevueltas;
-      this.LISTAPELICULAS = this.peliculas;
+      this.LISTAPELICULAS = peliculasDevueltas;
       this.dataSource.data = this.peliculas;
     })
   }
@@ -67,8 +67,7 @@ export class PeliculasComponent {
   }
   filtrar(){
     if (this.LISTAPELICULAS){
-      console.log(this.peliculas);
-      this.peliculas = this.LISTAPELICULAS.filter(pelicula=>pelicula.nombre.includes(this.filtro));
+      this.dataSource.data = this.LISTAPELICULAS.filter(pelicula=>pelicula.nombre.includes(this.filtro));
     }
   }
   removeFilm(nombrePelicula:String){

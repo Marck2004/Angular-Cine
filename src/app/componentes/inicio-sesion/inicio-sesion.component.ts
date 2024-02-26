@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavComponent } from '../nav/nav.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +10,7 @@ import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-inicio-sesion',
   standalone: true,
-  imports: [NavComponent,FormsModule, MatFormFieldModule, MatInputModule,NgClass],
+  imports: [FormsModule, MatFormFieldModule, MatInputModule,NgClass],
   templateUrl: './inicio-sesion.component.html',
   styleUrl: './inicio-sesion.component.css'
 })
@@ -41,5 +40,8 @@ export class InicioSesionComponent {
       }
 
     })
+  }
+  registro(){
+    this.router.navigate(["registro"]);
   }
 }
