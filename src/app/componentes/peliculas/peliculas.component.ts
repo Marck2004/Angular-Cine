@@ -58,11 +58,12 @@ export class PeliculasComponent {
       foto:pelicula.foto,
       tipo:pelicula.tipo
     } 
+    peliculaEnviada = pelicula
+    
     this.router.navigate(["/informacion",JSON.stringify(peliculaEnviada)]);
   }
   removeFilm(nombrePelicula:String){
     this.peliculasRecuperadas.eliminarPelicula(nombrePelicula).then((datos)=>{
-      console.log(datos);
       
       if(datos.status == "ok"){
         alert("Pelicula borrada correctamente");

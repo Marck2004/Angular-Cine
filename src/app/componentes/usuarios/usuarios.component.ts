@@ -29,15 +29,11 @@ export class UsuariosComponent {
     this.servicioUsuarios.recuperarUsuarios().then((datos:any)=>{
       this.usuarios = datos;
       this.dataSource.data = this.usuarios;
-      console.log(this.usuarios);
+      
     })
   }
   enviarInputs(persona:InterfazUsuariosBuscados){
-    console.log(persona);
-    /*this.servicioUsuarios.modificarUsuario(persona).then((datos)=>{
-      console.log(datos);
-      
-    })*/
+
     this.router.navigate(["modificarUsuario",JSON.stringify(persona)]);
   }
 

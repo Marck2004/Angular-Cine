@@ -11,7 +11,6 @@ table {
   }
   .botonesCambiar{
       display: block;
-      margin: 0 auto; /* Centra horizontalmente */
       padding: 10px 20px; /* Ajusta el relleno según sea necesario */
       font-size: 16px; /* Tamaño del texto */
       background-color: #959697; /* Color de fondo */
