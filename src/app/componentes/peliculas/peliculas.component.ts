@@ -10,13 +10,14 @@ import { InterfazUsuariosBuscados } from '../../interfaces/interfaz-usuarios-bus
 import { NgIf } from '@angular/common';
 import { NavUsuarioComponent } from '../nav-usuario/nav-usuario.component';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 const tipoPeliculas:InterfazPeliculas[] = [];
 
 @Component({
   selector: 'app-peliculas',
   standalone: true,
-  imports: [MatTableModule,MatSortModule,NavComponent,NgIf,NavUsuarioComponent],
+  imports: [MatTableModule,MatSortModule,NavComponent,NgIf,NavUsuarioComponent,FormsModule],
   templateUrl: './peliculas.component.html',
   styleUrl: './peliculas.component.css'
 })
@@ -24,7 +25,8 @@ const tipoPeliculas:InterfazPeliculas[] = [];
 export class PeliculasComponent {
   usuario?:InterfazUsuariosBuscados;
   peliculas?:InterfazPeliculas[];
-
+  LISTAPELICULAS?:InterfazPeliculas[];
+  filtro:string="";
   displayedColumns: string[] = ['nombre', 'autor', 'anio', 'tipo','foto','borrar'];
   dataSource = new MatTableDataSource(tipoPeliculas);
 
@@ -46,6 +48,7 @@ export class PeliculasComponent {
   
     this.peliculasRecuperadas.recuperarPelicula().then((peliculasDevueltas)=>{
       this.peliculas = peliculasDevueltas;
+      this.LISTAPELICULAS = this.peliculas;
       this.dataSource.data = this.peliculas;
     })
   }
@@ -61,6 +64,12 @@ export class PeliculasComponent {
     peliculaEnviada = pelicula
     
     this.router.navigate(["/informacion",JSON.stringify(peliculaEnviada)]);
+  }
+  filtrar(){
+    if (this.LISTAPELICULAS){
+      console.log(this.peliculas);
+      this.peliculas = this.LISTAPELICULAS.filter(pelicula=>pelicula.nombre.includes(this.filtro));
+    }
   }
   removeFilm(nombrePelicula:String){
     this.peliculasRecuperadas.eliminarPelicula(nombrePelicula).then((datos)=>{
@@ -80,4 +89,5 @@ export class PeliculasComponent {
       this._liveAnnouncer.announce('Sorting cleared');
     }
   }
+
 }
