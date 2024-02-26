@@ -4,6 +4,9 @@
 }@else {
   <app-nav-usuario></app-nav-usuario>
 }
+<br>
+<p>Filtrar Pelicula: <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()"></p>
+<br>
 <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
        class="mat-elevation-z8">
 
