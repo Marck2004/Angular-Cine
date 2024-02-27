@@ -1,3 +1,8 @@
+@if(this.loading == true){
+  <div class="form-container">
+<app-spinner></app-spinner>
+</div>
+}@else {
 <app-nav></app-nav>
 <div class="form-container">
     <div class="form-column">
@@ -46,3 +51,4 @@
     
   </div>
   <button id="botonAñadir" (click)="enviarDatos(peliculaAnadida)">Añadir pelicula</button>
+}

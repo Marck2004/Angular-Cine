@@ -6,11 +6,12 @@ import { InterfazPeliculas } from '../../interfaces/interfaz-peliculas';
 import { FormsModule } from '@angular/forms';
 import { ServicioApiPrivadaService } from '../../servicios/servicio-api-privada.service';
 import { NavComponent } from '../nav/nav.component';
+import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-add-pelicula',
   standalone: true,
-  imports: [MatInputModule,FormsModule,NavComponent],
+  imports: [MatInputModule,FormsModule,NavComponent,SpinnerComponent],
   templateUrl: './add-pelicula.component.html',
   styleUrl: './add-pelicula.component.css'
 })
@@ -22,14 +23,24 @@ export class AddPeliculaComponent {
       tipo:"",
       foto:""
     };
-
+    loading:boolean = false;
     constructor(private enviarPelicula:ServicioApiPrivadaService){}
 
     enviarDatos(pelicula:InterfazPeliculas){
       
       this.enviarPelicula.añadirPelicula(pelicula).then((datos)=>{
         if(datos.status == "ok"){
-          alert("Pelicula añadida")
+          this.loading = true;
+          let contador = 1;
+          let intervalo = setInterval(()=>{
+            if(contador == 1){
+              clearInterval(intervalo);
+              this.loading = false;
+                alert("Pelicula añadida")
+            }
+            contador++;
+          },3000);
+          
         }else{
           alert("No se ha podido añadir la pelicula")
         }
