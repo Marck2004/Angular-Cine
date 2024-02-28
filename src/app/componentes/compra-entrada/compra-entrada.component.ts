@@ -5,6 +5,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {provideNativeDateAdapter} from '@angular/material/core';
+import { InterfazPeliculas } from '../../interfaces/interfaz-peliculas';
 
 @Component({
   selector: 'app-compra-entrada',
@@ -21,7 +22,14 @@ export class CompraEntradaComponent {
   numeroEntradas:number = 0;
   hora?:number;
   minutos?:number;
+  horaTotal?:string;
 
+  infoPelicula?:{
+    hora:String,
+    fecha:String,
+    entradas:number,
+    pelicula:InterfazPeliculas
+  }
   mostrarDatePicker(){
     document.querySelector(".mat-calendar-content")?.addEventListener("click",()=>{
       this.validarFecha();
@@ -42,9 +50,24 @@ export class CompraEntradaComponent {
            && diaElegido.getFullYear() == parseInt(partesFecha[2])){
 
               if(diaElegido > hoy){
-                console.log(Math.floor(Math.random() * 6 )+17);
-                
-                
+                this.hora = Math.floor(Math.random() * 7 )+17
+                this.minutos = Math.floor(Math.random()*3)+1;
+                switch (this.minutos) {
+                  case 1:
+                  this.minutos = 15;
+                  break;
+                  case 2:
+                  this.minutos = 30;
+                  break;
+                  case 3:
+                  this.minutos = 45;
+                  break;
+                }
+                this.horaTotal = this.hora+":"+this.minutos;
+                console.log(this.horaTotal);
+
+                //this.infoPelicula?.hora = this.horaTotal;
+
               }else{
                 alert("La fecha debe ser mayor que la actual")
               }
