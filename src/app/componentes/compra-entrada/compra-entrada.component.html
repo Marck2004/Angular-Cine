@@ -1,5 +1,6 @@
 <app-nav-usuario></app-nav-usuario>
 <div class="divPrincipal">
+  <div class="text-center my-10">
     <mat-form-field>
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker">
@@ -7,7 +8,11 @@
         <mat-datepicker-toggle (click)="mostrarDatePicker()" matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-  
+    </div>
+@if( mostrarHorarios == true){
+  <app-horarios></app-horarios>
+}
+
   <div class="contenedor">
     <h1 id="textNumEntradas">Numero de entradas</h1>
         <section class="alineacion">
@@ -16,7 +21,7 @@
             <span (click)="sumarEntrada()"><img src="../../../assets/iconos/sumatorio.png" alt="suma" class="iconos"></span>
         </section>
   </div>
-  <button class="boton">COMPRAR</button>
+  <button class="boton" (click)="modifCarrito()">COMPRAR</button>
 </div>
   
   

@@ -1,0 +1,13 @@
+.carrito {
+    display: flex;
+    align-items: center;
+}
+.carrito img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.carrito {
+    order: 2; /* Reordenar el carrito al final */
+}

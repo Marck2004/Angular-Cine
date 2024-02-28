@@ -6,30 +6,32 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { InterfazPeliculas } from '../../interfaces/interfaz-peliculas';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HorariosComponent } from '../horarios/horarios.component';
 
 @Component({
   selector: 'app-compra-entrada',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [FormsModule,NavUsuarioComponent,MatFormFieldModule, MatInputModule, MatDatepickerModule],
+  imports: [FormsModule,NavUsuarioComponent,MatFormFieldModule, MatInputModule, MatDatepickerModule,HorariosComponent],
   templateUrl: './compra-entrada.component.html',
   styleUrl: './compra-entrada.component.css'
 })
 export class CompraEntradaComponent {
-  constructor(){}
+  constructor(private router:ActivatedRoute,
+    private enrutado:Router){}
 
-  fecha?:String;
+  fecha?:string;
   numeroEntradas:number = 0;
-  hora?:number;
-  minutos?:number;
-  horaTotal?:string;
 
-  infoPelicula?:{
-    hora:String,
-    fecha:String,
-    entradas:number,
-    pelicula:InterfazPeliculas
+
+  infoPelicula = {
+    hora:"",
+    fecha:"",
+    entradas:0,
+    pelicula:""
   }
+  mostrarHorarios?:boolean = false;
   mostrarDatePicker(){
     document.querySelector(".mat-calendar-content")?.addEventListener("click",()=>{
       this.validarFecha();
@@ -50,41 +52,28 @@ export class CompraEntradaComponent {
            && diaElegido.getFullYear() == parseInt(partesFecha[2])){
 
               if(diaElegido > hoy){
-                this.hora = Math.floor(Math.random() * 7 )+17
-                this.minutos = Math.floor(Math.random()*3)+1;
-                switch (this.minutos) {
-                  case 1:
-                  this.minutos = 15;
-                  break;
-                  case 2:
-                  this.minutos = 30;
-                  break;
-                  case 3:
-                  this.minutos = 45;
-                  break;
-                }
-                this.horaTotal = this.hora+":"+this.minutos;
-                console.log(this.horaTotal);
 
-                //this.infoPelicula?.hora = this.horaTotal;
+                this.mostrarHorarios = true;
+                this.router.params.subscribe(datos=>{
+                  this.infoPelicula.pelicula =  JSON.parse(datos["pelicula"]);
+                });
 
+                this.infoPelicula.fecha = this.fecha;
+                localStorage.setItem("pelicula",JSON.stringify(this.infoPelicula));
+                console.log(this.infoPelicula);
+          
               }else{
                 alert("La fecha debe ser mayor que la actual")
               }
           }else{
             alert("Fecha no valida");
           }
-          
-            
-
         } else {
           alert("No ha seleccionado nada");
         }
       } else {
         alert("No ha seleccionado nada");
-      }
-      
-      
+      }  
   }
   sumarEntrada(){
     this.numeroEntradas++;
@@ -95,5 +84,18 @@ export class CompraEntradaComponent {
     }else{
     this.numeroEntradas--;
   }
+  }
+  modifCarrito(){
+    let Storage = localStorage.getItem("pelicula");
+    let pelicula:any;
+    
+    if(Storage != null){
+      pelicula = JSON.parse(Storage);
+      
+    }
+
+    pelicula.entradas = this.numeroEntradas;
+    
+    localStorage.setItem("pelicula",JSON.stringify(pelicula));
   }
 }

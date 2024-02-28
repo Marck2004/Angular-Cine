@@ -24,13 +24,12 @@ export class InfoPeliculaComponent {
     mostrarInformacion(){
       this.router.params.subscribe(datos=>{
         this.pelicula = JSON.parse(datos["pelicula"]);
-        console.log(this.pelicula);
       })
     }
     back(){
       this.enrutado.navigate(["peliculas"]);
     }
     comprarEntrada(){
-      this.enrutado.navigate(["compraEntrada"]);
+      this.enrutado.navigate(["/compraEntrada",JSON.stringify(this.pelicula)]);
     }
 }

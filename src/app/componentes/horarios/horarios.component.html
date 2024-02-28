@@ -1,0 +1,13 @@
+<div class="flex justify-center items-center w-full">
+    <div class="grid grid-cols-3 gap-3">
+        <div (click)="guardarHora($event)" class="manejarClick h-48 w-72 bg-gray border-2 flex justify-center items-center text-center text-white text-xl font-bold" style="margin: 30px; background-color: black;">
+            <span >{{horaTotal}}</span>
+        </div>
+        <div (click)="guardarHora($event)" class="manejarClick h-48 w-72 bg-gray border-2 flex justify-center items-center text-center text-white text-xl font-bold" style="margin: 30px; background-color: black;">
+            <span (click)="guardarHora($event)">{{horaTotalSeg}}</span>
+        </div>
+        <div (click)="guardarHora($event)" class="manejarClick h-48 w-72 bg-gray border-2 flex justify-center items-center text-center text-white text-xl font-bold" style="margin: 30px; background-color: black;">
+            <span (click)="guardarHora($event)">{{horaTotalTerc}}</span>
+        </div>
+    </div>
+</div>
