@@ -319,6 +319,19 @@ function coerceCssPixelValue(value) {
 function coerceElement(elementOrRef) {
   return elementOrRef instanceof ElementRef ? elementOrRef.nativeElement : elementOrRef;
 }
+function coerceStringArray(value, separator = /\s+/) {
+  const result = [];
+  if (value != null) {
+    const sourceValues = Array.isArray(value) ? value : `${value}`.split(separator);
+    for (const sourceValue of sourceValues) {
+      const trimmedString = `${sourceValue}`.trim();
+      if (trimmedString) {
+        result.push(trimmedString);
+      }
+    }
+  }
+  return result;
+}
 
 // node_modules/@angular/cdk/fesm2022/observers.mjs
 var _MutationObserverFactory = class _MutationObserverFactory {
@@ -2851,6 +2864,7 @@ export {
   RtlScrollAxisType,
   supportsScrollBehavior,
   getRtlScrollAxisType,
+  _getFocusedElementPierceShadowDom,
   _getEventTarget,
   _isTestEnvironment,
   BACKSPACE,
@@ -2858,6 +2872,10 @@ export {
   ENTER,
   ESCAPE,
   SPACE,
+  PAGE_UP,
+  PAGE_DOWN,
+  END,
+  HOME,
   LEFT_ARROW,
   UP_ARROW,
   RIGHT_ARROW,
@@ -2871,6 +2889,7 @@ export {
   coerceArray,
   coerceCssPixelValue,
   coerceElement,
+  coerceStringArray,
   ObserversModule,
   addAriaReferencedId,
   removeAriaReferencedId,
@@ -2909,4 +2928,4 @@ export {
   HighContrastModeDetector,
   A11yModule
 };
-//# sourceMappingURL=chunk-YFUSGK6X.js.map
+//# sourceMappingURL=chunk-T4HMWXZ4.js.map

@@ -1,0 +1,56 @@
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor .alineacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alineacion{
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20%;
+}
+#textNumEntradas {
+    text-align: center;
+    margin-bottom: 20px; /* Ajusta según sea necesario */
+}
+
+.contenedor .alineacion span {
+    margin: 0 10px; /* Ajusta el margen entre los elementos span */
+}
+
+#numEntradas {
+    font-size: xx-large;
+    margin: 0 10px; /* Ajusta según sea necesario */
+}
+
+.iconos {
+    height: 40px;
+    width: 40px;
+}
+.relative{
+    margin: 30px auto;
+}
+.divPrincipal{
+    width: 100%;
+}
+.boton{
+    margin-top: 20px;
+    display: block;
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+    font-size: 16px; /* Tamaño del texto */
+    background-color: #959697; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  }
+  .boton:hover{
+    background-color: #44484d; /* Color de fondo al pasar sobre el botón */
+  }

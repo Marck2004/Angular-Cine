@@ -1,0 +1,23 @@
+<app-nav-usuario></app-nav-usuario>
+<div class="divPrincipal">
+    <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle (click)="mostrarDatePicker()" matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  
+  <div class="contenedor">
+    <h1 id="textNumEntradas">Numero de entradas</h1>
+        <section class="alineacion">
+            <span (click)="restarEntrada()"><img src="../../../assets/iconos/restar.png" alt="resta" class="iconos"></span>
+            <h1 id="numEntradas">{{numeroEntradas}}</h1>
+            <span (click)="sumarEntrada()"><img src="../../../assets/iconos/sumatorio.png" alt="suma" class="iconos"></span>
+        </section>
+  </div>
+  <button class="boton">COMPRAR</button>
+</div>
+  
+  
+  

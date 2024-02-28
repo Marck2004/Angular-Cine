@@ -7,6 +7,7 @@ import { InfoPeliculaComponent } from './componentes/info-pelicula/info-pelicula
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { ModificarUsuarioComponent } from './componentes/modificar-usuario/modificar-usuario.component';
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
+import { CompraEntradaComponent } from './componentes/compra-entrada/compra-entrada.component';
 
 export const routes: Routes = [
     {path:"",component:PeliculasComponent},
@@ -16,5 +17,6 @@ export const routes: Routes = [
     {path:"informacion/:pelicula",component:InfoPeliculaComponent},
     {path:"usuarios",component:UsuariosComponent},
     {path:"modificarUsuario/:usuario",component:ModificarUsuarioComponent},
-    {path:"registro",component:RegistroUsuarioComponent}
+    {path:"registro",component:RegistroUsuarioComponent},
+    {path:"compraEntrada",component:CompraEntradaComponent}
 ];

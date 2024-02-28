@@ -30,4 +30,7 @@ export class InfoPeliculaComponent {
     back(){
       this.enrutado.navigate(["peliculas"]);
     }
+    comprarEntrada(){
+      this.enrutado.navigate(["compraEntrada"]);
+    }
 }

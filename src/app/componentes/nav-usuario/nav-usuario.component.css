@@ -1,7 +1,3 @@
-.nav{
-    margin-top: 10px;
+a{
+    font-size: large;
 }
-.container {
-    display: flex;
-    justify-content: center;
-  }

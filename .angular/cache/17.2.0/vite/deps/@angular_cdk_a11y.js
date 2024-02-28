@@ -35,7 +35,7 @@ import {
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader,
   removeAriaReferencedId
-} from "./chunk-YFUSGK6X.js";
+} from "./chunk-T4HMWXZ4.js";
 import "./chunk-VUUFQEMM.js";
 import "./chunk-JGPWXBH3.js";
 export {
