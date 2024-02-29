@@ -1,0 +1,32 @@
+<app-nav-usuario></app-nav-usuario>
+<div class=" w-full p-5 flex items-center justify-center" >
+    <table class="border-2 p-10">
+        <th class="m-8 border-2 p-10 border-black">Nombre</th>
+        <th class="m-8 border-2 p-10 border-black">Autor</th>
+        <th class="m-8 border-2 p-10 border-black">Tipo</th>
+        <th class="m-8 border-2 p-10 border-black">Año</th>
+        <th class="m-8 border-2 p-10 border-black">Precio</th>
+        <th class="m-8 border-2 p-10 border-black">Hora</th>
+        <th class="m-8 border-2 p-10 border-black">Fecha</th>
+        <th class="m-8 border-2 p-10 border-black">Foto</th>
+        <tbody>
+            <ng-container *ngFor="let datos of entrada | keyvalue; let i = index">
+            <ng-container *ngIf="numEntradas != undefined && i < numEntradas">
+            <tr class="p-4 border-2 p-10">
+                <td class="p-4 border-2 border-black">{{ propiedadesPelicula?.nombre }}</td>
+                <td class="p-4 border-2 border-black">{{ propiedadesPelicula?.autor }}</td>
+                <td class="p-4 border-2 border-black">{{ propiedadesPelicula?.anio }}</td>
+                <td class="p-4 border-2 border-black">{{ propiedadesPelicula?.tipo }}</td>
+                <td class="p-4 border-2 border-black">{{ entrada.precio / entrada.entradas }}</td>
+                <td class="p-4 border-2 border-black">{{ entrada.fecha }}</td>
+                <td class="p-4 border-2 border-black">{{ entrada.hora }}</td>
+                <td class="p-4 border-2 border-black"><img [src]="'../../../assets/imgPeliculas/'+propiedadesPelicula?.foto" alt="foto pelicula" class="w-20 h-20"></td>
+              </tr>
+            </ng-container>
+            </ng-container>
+        </tbody>
+    </table>
+    
+</div>
+<h1>Precio: <span>{{entrada.pecio}}</span></h1>
+<button class="boton">PAGAR</button>
