@@ -1,5 +1,26 @@
-<div class="carrito">
+<div class="carrito" (click)="mostrarCarrito()">
     <img src="../../../assets/iconos/carrito.png" alt="Carro de la compra">
-    <span class=" text-xl rounded-full" style="background-color: rgb(197, 197, 197);">{{conteo}}</span>
 </div>
-
+    @if (mostrar == true) {
+<div class="h-full w-full absolute p-8" style="background-color: grey;">
+    <table>
+        <th class="m-8">Nombre</th>
+        <th class="m-8">Precio</th>
+        <th class="m-8">Fecha</th>
+        <th class="m-8">Foto</th>
+        <tbody>
+            <ng-container *ngFor="let datos of entrada | keyvalue; let i = index">
+            <ng-container *ngIf="numEntradas != undefined && i < numEntradas">
+            <tr >
+                <td>{{ propiedadesPelicula?.nombre }}</td>
+                <td>{{ entrada.precio / entrada.entradas }}</td>
+                <td>{{ entrada.fecha }}</td>
+                <td><img [src]="'../../../assets/imgPeliculas/'+propiedadesPelicula?.foto" alt="foto pelicula" class="w-10 h-10"></td>
+              </tr>
+            </ng-container>
+            </ng-container>
+        </tbody>
+    </table>
+    <button class="boton" (click)="compra()">PAGAR</button>
+</div>
+}

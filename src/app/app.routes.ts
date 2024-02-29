@@ -9,6 +9,7 @@ import { ModificarUsuarioComponent } from './componentes/modificar-usuario/modif
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 import { CompraEntradaComponent } from './componentes/compra-entrada/compra-entrada.component';
 import { CarritoComponent } from './componentes/carrito/carrito.component';
+import { ZonaCompraComponent } from './componentes/zona-compra/zona-compra.component';
 
 export const routes: Routes = [
     {path:"",component:PeliculasComponent},
@@ -20,5 +21,6 @@ export const routes: Routes = [
     {path:"modificarUsuario/:usuario",component:ModificarUsuarioComponent},
     {path:"registro",component:RegistroUsuarioComponent},
     {path:"compraEntrada/:pelicula",component:CompraEntradaComponent},
-    {path:"carrito",component:CarritoComponent}
+    {path:"carrito",component:CarritoComponent},
+    {path:"zonaCompra",component:ZonaCompraComponent}
 ];

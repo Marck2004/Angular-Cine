@@ -29,7 +29,8 @@ export class CompraEntradaComponent {
     hora:"",
     fecha:"",
     entradas:0,
-    pelicula:""
+    pelicula:"",
+    precio:0
   }
   mostrarHorarios?:boolean = false;
   mostrarDatePicker(){
@@ -93,9 +94,11 @@ export class CompraEntradaComponent {
       pelicula = JSON.parse(Storage);
       
     }
-
+    pelicula.precio = this.numeroEntradas * 5;
     pelicula.entradas = this.numeroEntradas;
     
     localStorage.setItem("pelicula",JSON.stringify(pelicula));
+    alert("Pelicula añadida al carrito");
   }
+
 }
