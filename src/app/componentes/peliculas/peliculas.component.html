@@ -7,56 +7,76 @@
 <br>
 <p>Filtrar peliculas: <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()"></p>
 <br>
-<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+<table mat-table [dataSource]="dataSource"
        class="mat-elevation-z8">
 
   <!-- Position Column -->
   <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by nombre">
-      Nombre
+    <th mat-header-cell *matHeaderCellDef>
+      <div class="flex items-center">
+      <img src="../../../assets/iconos/flechaAbajo.png" alt="flecha hacia abajo" class="flechas" (click)="ordenar('Nombre',-1)">
+       Nombre 
+      <img src="../../../assets/iconos/flechaArriba.png" alt="flecha hacia arriba" class="flechas"  (click)="ordenar('Nombre',1)">
+    </div>
     </th>
     <td mat-cell *matCellDef="let peliculas"> {{peliculas.nombre}} </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="autor">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by autor">
-      Autor
+    <th mat-header-cell *matHeaderCellDef>
+      <div class="flex items-center">
+      <img src="../../../assets/iconos/flechaAbajo.png" alt="flecha hacia abajo" class="flechas" (click)="ordenar('Autor',-1)">
+       Autor 
+      <img src="../../../assets/iconos/flechaArriba.png" alt="flecha hacia arriba" class="flechas"  (click)="ordenar('Autor',1)">
+    </div>
     </th>
     <td mat-cell *matCellDef="let peliculas"> {{peliculas.autor}} </td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="anio">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by año">
-      Año
+    <th mat-header-cell *matHeaderCellDef>
+      <div class="flex items-center">
+      <img src="../../../assets/iconos/flechaAbajo.png" alt="flecha hacia abajo" class="flechas" (click)="ordenar('Anio',-1)">
+       Año 
+      <img src="../../../assets/iconos/flechaArriba.png" alt="flecha hacia arriba" class="flechas"  (click)="ordenar('Anio',1)">
+    </div>
     </th>
     <td mat-cell *matCellDef="let peliculas"> {{peliculas.anio}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="tipo">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by tipo">
-      Tipo
+    <th mat-header-cell *matHeaderCellDef>
+      <div class="flex items-center">
+      <img src="../../../assets/iconos/flechaAbajo.png" alt="flecha hacia abajo" class="flechas" (click)="ordenar('Tipo',-1)">
+       Tipo 
+      <img src="../../../assets/iconos/flechaArriba.png" alt="flecha hacia arriba" class="flechas"  (click)="ordenar('Tipo',1)">
+    </div>
     </th>
     <td mat-cell *matCellDef="let peliculas"> {{peliculas.tipo}} </td>
   </ng-container>
 
   <ng-container matColumnDef="foto">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by img" class="mat-header-cell">
+    <th mat-header-cell *matHeaderCellDef>
+      <div class="flex items-center">
+      <img src="../../../assets/iconos/flechaAbajo.png" alt="flecha hacia abajo" class="flechas" (click)="ordenar('Imagen',-1)">
       Imagen
+      <img src="../../../assets/iconos/flechaArriba.png" alt="flecha hacia arriba" class="flechas" (click)="ordenar('Imagen',1)">
+    </div>
     </th>
     <td mat-cell *matCellDef="let peliculas"> <img [src]="'../../../assets/imgPeliculas/'+peliculas.foto" class="foto" [alt]="peliculas.nombre"></td>
   </ng-container>
 
   <ng-container matColumnDef="borrar">
     @if (this.usuario?.estado == "admin") {
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by borrar" class="mat-header-cell">
+    <th mat-header-cell *matHeaderCellDef>
       Borrar
     </th>
     <td mat-cell *matCellDef="let peliculas"><button class="botonesCambiar" (click)="removeFilm(peliculas.nombre)">Borrar</button></td>
   }@else {
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by comprar" class="mat-header-cell">
+    <th mat-header-cell *matHeaderCellDef>
       Comprar
     </th>
     <td mat-cell *matCellDef="let peliculas"><button class="botonesCambiar" (click)="comprarPelicula(peliculas)">Comprar</button></td>

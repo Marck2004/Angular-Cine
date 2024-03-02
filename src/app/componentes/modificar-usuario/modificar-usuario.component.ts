@@ -39,8 +39,10 @@ export class ModificarUsuarioComponent {
   enviarUsuario(usuarioNuevo:InterfazUsuariosBuscados){
     this.servicioUsuario.modificarUsuario(usuarioNuevo).then((datos)=>{
       if(datos.status == "ok"){
+        console.log(datos);
+        
         alert("Usuario modificado correctamente");
-        this.enrutado.navigate(["usuarios"]);
+        this.enrutado.navigate(["inicioSesion"]);
       }else{
         alert("No se actualizo bien al usuario")
       }

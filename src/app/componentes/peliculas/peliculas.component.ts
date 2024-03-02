@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { ServicioApiPrivadaService } from '../../servicios/servicio-api-privada.service';
 import { InterfazPeliculas } from '../../interfaces/interfaz-peliculas';
-import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
+import { MatSortModule} from '@angular/material/sort';
 import { NavComponent } from '../nav/nav.component';
 import { InterfazUsuariosBuscados } from '../../interfaces/interfaz-usuarios-buscados';
 import { NgIf } from '@angular/common';
@@ -31,7 +29,6 @@ export class PeliculasComponent {
   dataSource = new MatTableDataSource(tipoPeliculas);
 
   constructor(private peliculasRecuperadas:ServicioApiPrivadaService,
-    private _liveAnnouncer: LiveAnnouncer,
     private router:Router){
   }
 
@@ -81,12 +78,37 @@ export class PeliculasComponent {
       }
     })
   }
-  announceSortChange(sortState: Sort) {
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
-  }
 
+  ordenar(campo:string,orden:number){
+    if (this.peliculas){
+      if (campo == "Nombre"){
+        this.dataSource.data = this.peliculas.sort((a,b)=>{
+          if (a.nombre.toLocaleUpperCase() >b.nombre.toLocaleUpperCase()) return 1*orden;
+          else return -1*orden;
+        })
+      }else if(campo == "Autor"){
+        this.dataSource.data = this.peliculas.sort((a,b)=>{
+          if (a.autor.toLocaleUpperCase() >b.autor.toLocaleUpperCase()) return 1*orden;
+          else return -1*orden;
+      })
+      }else if(campo == "Anio"){
+        this.dataSource.data = this.peliculas.sort((a,b)=>{
+          if (a.anio >b.anio) return 1*orden;
+          else return -1*orden;
+      })
+      }
+      else if(campo == "Tipo"){
+        this.dataSource.data = this.peliculas.sort((a,b)=>{
+          if (a.tipo.toLocaleUpperCase() >b.tipo.toLocaleUpperCase()) return 1*orden;
+          else return -1*orden;
+      })
+      }else if(campo == "Imagen"){
+        this.dataSource.data = this.peliculas.sort((a,b)=>{
+          if (a.foto.toLocaleUpperCase() >b.foto.toLocaleUpperCase()) return 1*orden;
+          else return -1*orden;
+      })
+      }
+    
+  }
+  }
 }

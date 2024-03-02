@@ -44,3 +44,7 @@ table {
   .mat-row:hover {
     background-color: #ddd; /* Color de fondo cuando se pasa el ratón sobre una fila */
   }
+  .flechas{
+    height: 15px;
+    width: 15px;
+  }
