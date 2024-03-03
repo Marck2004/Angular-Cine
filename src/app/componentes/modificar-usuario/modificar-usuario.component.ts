@@ -42,7 +42,7 @@ export class ModificarUsuarioComponent {
       if(datos.status == "ok"){
         console.log(datos);
         alert("Usuario modificado correctamente");
-        this.enrutado.navigate(["modificarUsuario"]);
+        this.enrutado.navigate(["usuarios"]);
       }else{
         this.credencialesCorrectas = false;
         alert("No se actualizo bien al usuario")

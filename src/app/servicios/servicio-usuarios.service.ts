@@ -9,6 +9,7 @@ export class ServicioUsuariosService {
   constructor() { }
 
     async inicioSesion(usuario:InterfazUsuariosBuscados){
+      console.log(usuario);
       
       const response = await fetch("http://localhost:2525/login",{
         method:"post",
@@ -18,7 +19,8 @@ export class ServicioUsuariosService {
       });
         
         const data:any = await response.json();
-      
+        console.log(data);
+        
         return data;
     }
     async recuperarUsuarios():Promise<InterfazUsuariosBuscados[]>{

@@ -15,8 +15,8 @@
             <tr class="p-4 border-2 p-10">
                 <td class="p-4 border-2 border-black">{{ propiedadesPelicula?.nombre }}</td>
                 <td class="p-4 border-2 border-black">{{ propiedadesPelicula?.autor }}</td>
-                <td class="p-4 border-2 border-black">{{ propiedadesPelicula?.anio }}</td>
                 <td class="p-4 border-2 border-black">{{ propiedadesPelicula?.tipo }}</td>
+                <td class="p-4 border-2 border-black">{{ propiedadesPelicula?.anio }}</td>
                 <td class="p-4 border-2 border-black">{{ entrada.precio / entrada.entradas }}</td>
                 <td class="p-4 border-2 border-black">{{ entrada.fecha }}</td>
                 <td class="p-4 border-2 border-black">{{ entrada.hora }}</td>
@@ -31,4 +31,4 @@
 <div class="flex items-center justify-center">
     <h1 class="m-0">Precio: <span>{{entrada.precio}}</span></h1>
 </div>
-<button class="boton">PAGAR</button>
+<button class="boton" (click)="comprarPaypal()">PAGAR</button>

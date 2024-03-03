@@ -25,18 +25,17 @@ export class CarritoComponent {
 
   mostrarCarrito(){
     if(localStorage.getItem("pelicula")){
+      if(this.mostrar == false){
       this.mostrar = true;
+    }else{
+      this.mostrar = false;
+    }
       let Storage = localStorage.getItem("pelicula");
       if(Storage != null){
         this.entrada = JSON.parse(Storage);
       }
       this.numEntradas = this.entrada.entradas;
       this.propiedadesPelicula = this.entrada.pelicula;
-      console.log(this.numEntradas);
-      
-      console.log(this.propiedadesPelicula);
-      
-      console.log(this.entrada);
       
     }else{
       alert("El carrito esta vacio");

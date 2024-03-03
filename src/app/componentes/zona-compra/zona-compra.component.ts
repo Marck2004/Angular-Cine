@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavUsuarioComponent } from '../nav-usuario/nav-usuario.component';
 import { InterfazPeliculas } from '../../interfaces/interfaz-peliculas';
 import { KeyValuePipe, NgFor, NgIf } from '@angular/common';
+import { CompraService } from '../../servicios/compra.service';
 
 @Component({
   selector: 'app-zona-compra',
@@ -14,7 +15,7 @@ export class ZonaCompraComponent {
   entrada?:any;
   propiedadesPelicula?:InterfazPeliculas;
   numEntradas?:number;
-  constructor(){}
+  constructor(private servicioCompra:CompraService){}
 
   ngOnInit(){
     this.mostrarInformacion();
@@ -26,11 +27,12 @@ export class ZonaCompraComponent {
       }
       this.numEntradas = this.entrada.entradas;
       this.propiedadesPelicula = this.entrada.pelicula;
-      console.log(this.numEntradas);
+
+  }
+  comprarPaypal(){
+    this.servicioCompra.finalizarCompra(this.entrada.precio).then((datos)=>{
+      console.log(datos);
       
-      console.log(this.propiedadesPelicula);
-      
-      console.log(this.entrada);
-      
+    })
   }
 }
