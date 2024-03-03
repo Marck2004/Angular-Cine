@@ -7,16 +7,14 @@ import {
   _VIEW_REPEATER_STRATEGY,
   _ViewRepeaterOperation,
   isDataSource
-} from "./chunk-XRVVWRY6.js";
+} from "./chunk-ERZB4RVT.js";
 import {
   Directionality,
-  MatCommonModule
-} from "./chunk-B3FF6BXN.js";
-import {
+  MatCommonModule,
   Platform,
   _isNumberValue,
   coerceBooleanProperty
-} from "./chunk-T4HMWXZ4.js";
+} from "./chunk-4QLRAQOI.js";
 import {
   DOCUMENT
 } from "./chunk-VUUFQEMM.js";

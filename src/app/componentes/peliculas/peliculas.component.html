@@ -66,7 +66,7 @@
       <img src="../../../assets/iconos/flechaArriba.png" alt="flecha hacia arriba" class="flechas" (click)="ordenar('Imagen',1)">
     </div>
     </th>
-    <td mat-cell *matCellDef="let peliculas"> <img [src]="'../../../assets/imgPeliculas/'+peliculas.foto" class="foto" [alt]="peliculas.nombre"></td>
+    <td mat-cell *matCellDef="let peliculas"> <img *ngIf="peliculas.foto" [src]="'../../../assets/imgPeliculas/'+peliculas.foto" class="foto" [alt]="peliculas.foto"></td>
   </ng-container>
 
   <ng-container matColumnDef="borrar">

@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 export class UsuariosComponent {
   usuarios:any = [];
 
-  displayedColumns: string[] = ['nombre', 'contrasenia', 'email', 'telefono','estado',"modificar"];
+  displayedColumns: string[] = ['nombre', 'contrasenia', 'email', 'telefono','estado',"modificar","borrar"];
   dataSource = new MatTableDataSource<InterfazUsuariosBuscados>(this.usuarios);
 
   constructor(private servicioUsuarios:ServicioUsuariosService,
@@ -33,8 +33,18 @@ export class UsuariosComponent {
     })
   }
   enviarInputs(persona:InterfazUsuariosBuscados){
-
     this.router.navigate(["modificarUsuario",JSON.stringify(persona)]);
+  }
+  eliminarUsuario(nombreUsuario:String){
+    this.servicioUsuarios.eliminarUsuario(nombreUsuario).then((datos:any)=>{
+      
+      if(datos.status == "ok"){
+        alert("Usuario borrado correctamente");
+      this.devolverUsuarios();
+      }else{
+        alert("Error al borrar el usuario")
+      }
+    })
   }
 
 }

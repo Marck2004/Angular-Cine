@@ -28,29 +28,16 @@ export class RegistroUsuarioComponent {
       private router:Router){}
 
   validarRegistro(usuario:InterfazUsuariosBuscados){
-    if(usuario.contrasenia.length < 8 || !usuario.email.includes("@gmail.com") || (usuario.telefono < 100000000 || usuario.telefono > 999999999)){
-    if(usuario.contrasenia.length < 8){
-      alert("La contraseña debe tener mas de 8 caracteres");
-    }
-    if(!usuario.email.includes("@gmail.com")){
-      alert("El formato del mail es incorrecto");
-    }
-    if(usuario.telefono < 100000000 || usuario.telefono > 999999999){
-      alert("El telefono tiene que tener 9 digitos");
-    }
-    this.credencialesCorrectas = false;
-  }else{
+
     this.servicioUsuarios.añadirUsuario(usuario).then((datos)=>{
       if(datos.status == "ok"){
         alert("Usuario registrado");
         this.router.navigate(["peliculas"]);
       }else{
+        this.credencialesCorrectas = false;
         alert("No se ha podido añadir al usuario");
       }
     })
-  }
-
-    
   }
   volver(){
     this.router.navigate(["inicioSesion"]);

@@ -53,4 +53,13 @@ export class ServicioUsuariosService {
       
       return data;
     }
+    async eliminarUsuario(nombre:String){
+      
+      const response = await fetch(`http://localhost:2525/usuarios/${nombre}`,{
+        method:"DELETE"
+      });      
+
+        const data:any = await response.json();
+        return data;
+      }
 }

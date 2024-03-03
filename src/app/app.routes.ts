@@ -12,7 +12,7 @@ import { CarritoComponent } from './componentes/carrito/carrito.component';
 import { ZonaCompraComponent } from './componentes/zona-compra/zona-compra.component';
 
 export const routes: Routes = [
-    {path:"",component:PeliculasComponent},
+    {path:"",component:InicioSesionComponent},
     {path:"peliculas",component:PeliculasComponent},
     {path:"añadirPelicula",component:AddPeliculaComponent},
     {path:"inicioSesion",component:InicioSesionComponent},

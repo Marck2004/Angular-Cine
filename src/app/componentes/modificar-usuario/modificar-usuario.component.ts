@@ -7,11 +7,12 @@ import { MatOption } from '@angular/material/core';
 import { MatSelect } from '@angular/material/select';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServicioUsuariosService } from '../../servicios/servicio-usuarios.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-modificar-usuario',
   standalone: true,
-  imports: [MatInputModule,FormsModule,NavComponent,MatOption,MatSelect],
+  imports: [MatInputModule,FormsModule,NavComponent,MatOption,MatSelect,NgClass],
   templateUrl: './modificar-usuario.component.html',
   styleUrl: './modificar-usuario.component.css'
 })
@@ -23,7 +24,7 @@ export class ModificarUsuarioComponent {
     telefono:0,
     estado:""
   }
-  
+  credencialesCorrectas:boolean = true;
   constructor(private router:ActivatedRoute,
     private servicioUsuario:ServicioUsuariosService,
     private enrutado:Router){}
@@ -40,13 +41,12 @@ export class ModificarUsuarioComponent {
     this.servicioUsuario.modificarUsuario(usuarioNuevo).then((datos)=>{
       if(datos.status == "ok"){
         console.log(datos);
-        
         alert("Usuario modificado correctamente");
-        this.enrutado.navigate(["inicioSesion"]);
+        this.enrutado.navigate(["modificarUsuario"]);
       }else{
+        this.credencialesCorrectas = false;
         alert("No se actualizo bien al usuario")
       }
-      
     })
     
   }

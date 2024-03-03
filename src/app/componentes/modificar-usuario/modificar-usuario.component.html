@@ -3,15 +3,15 @@
     <div class="form-column">
       <div class="form-field" class="cajas">
         <label>Nombre Usuario</label>
-        <mat-form-field appearance="fill">
-          <mat-label>Nombre Usuario</mat-label>
-          <input matInput [(ngModel)]="usuarioModificar.nombre" placeholder="Placeholder">
+        <mat-form-field appearance="fill" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
+          <mat-label>Nombre Usuario</mat-label >
+          <input matInput [(ngModel)]="usuarioModificar.nombre" placeholder="Placeholder" >
         </mat-form-field>
       </div>
   
       <div class="form-field" class="cajas">
         <label>Contraseña</label>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
           <mat-label>Contraseña</mat-label>
           <input matInput [(ngModel)]="usuarioModificar.contrasenia" placeholder="Placeholder">
         </mat-form-field>
@@ -21,7 +21,7 @@
     <div class="form-column">
       <div class="form-field" class="cajas">
         <label>email</label>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
           <mat-label>email</mat-label>
           <input matInput [(ngModel)]="usuarioModificar.email" placeholder="Placeholder">
         </mat-form-field>
@@ -29,7 +29,7 @@
   
       <div class="form-field" class="cajas">
         <label>Telefono</label>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
           <mat-label>Telefono</mat-label>
           <input matInput type="number" [(ngModel)]="usuarioModificar.telefono" placeholder="Placeholder">
         </mat-form-field>
@@ -37,7 +37,7 @@
   
       <div class="form-field" class="cajas">
         <label>Estado</label>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
             <mat-label>Estado</mat-label>
             <mat-select [(ngModel)]="usuarioModificar.estado" placeholder="Selecciona un estado">
               <mat-option value="usuario">usuario</mat-option>
