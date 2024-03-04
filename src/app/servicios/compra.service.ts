@@ -13,7 +13,7 @@ export class CompraService {
       method:"post",
       mode:"cors",
       headers:{'Content-Type': 'application/json'},
-      body:JSON.stringify(precio)
+      body:precio
     });
     const data:any = await response.json();
       console.log(data);

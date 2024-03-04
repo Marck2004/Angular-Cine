@@ -8,7 +8,7 @@
     <div class="form-column">
       <div class="form-field" class="cajas">
         <label>Nombre de la película</label>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
           <mat-label>Nombre de la película</mat-label>
           <input matInput [(ngModel)]="peliculaAnadida.nombre" placeholder="Placeholder">
         </mat-form-field>
@@ -16,7 +16,7 @@
   
       <div class="form-field" class="cajas">
         <label>Autor</label>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
           <mat-label>Autor</mat-label>
           <input matInput [(ngModel)]="peliculaAnadida.autor" placeholder="Placeholder">
         </mat-form-field>
@@ -26,7 +26,7 @@
     <div class="form-column">
       <div class="form-field" class="cajas">
         <label>Año</label>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
           <mat-label>Año</mat-label>
           <input matInput type="number" [(ngModel)]="peliculaAnadida.anio" placeholder="Placeholder">
         </mat-form-field>
@@ -34,7 +34,7 @@
   
       <div class="form-field" class="cajas">
         <label>Tipo</label>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
           <mat-label>Tipo</mat-label>
           <input matInput [(ngModel)]="peliculaAnadida.tipo" placeholder="Placeholder">
         </mat-form-field>
@@ -42,7 +42,7 @@
   
       <div class="form-field" class="cajas">
         <label>Imagen</label>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" [ngClass]="{'borde-rojo': !credencialesCorrectas}">
           <mat-label>Imagen</mat-label>
           <input matInput [(ngModel)]="peliculaAnadida.foto" placeholder="Placeholder">
         </mat-form-field>
