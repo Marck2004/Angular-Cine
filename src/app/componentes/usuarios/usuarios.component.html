@@ -33,7 +33,8 @@
             <th mat-header-cell *matHeaderCellDef> Estado </th>
             <td mat-cell *matCellDef="let usuarios"> {{usuarios.estado}} </td>
           </ng-container>
-      
+          
+
           <ng-container matColumnDef="modificar">
             <th mat-header-cell *matHeaderCellDef> Modificar </th>
             <td mat-cell *matCellDef="let usuarios"><button class="botonesCambiar" (click)="enviarInputs(usuarios)">Modificar</button></td>
